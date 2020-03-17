@@ -9,7 +9,7 @@ import ru.ifmo.rain.chulkov.hellocommand.api.HelloCommand;
 
 @SuppressWarnings("deprecation")
 @Component
-@Service(value = Object.class)
+@Service(value = HelloCommand.class)
 @Properties({
         @Property(name = "osgi.command.scope", value = "practice"),
         @Property(name = "osgi.command.function", value = "hello")
