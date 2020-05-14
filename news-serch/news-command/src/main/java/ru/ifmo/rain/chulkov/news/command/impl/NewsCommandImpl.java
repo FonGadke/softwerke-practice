@@ -54,7 +54,7 @@ public class NewsCommandImpl implements NewsCommand {
                 if (stats.isEmpty()) {
                     stats.putAll(p.parseNews());
                 } else {
-                    mergeMaps(stats, p.parseNews());
+                    stats = mergeMaps(stats, p.parseNews());
                 }
             }
             printStats(stats);
@@ -88,10 +88,11 @@ public class NewsCommandImpl implements NewsCommand {
         printStats(chosen.parseNews());
     }
 
-    private void mergeMaps(Map<String, Integer> left, Map<String, Integer> right) {
-        left.forEach(
-                (key, value) -> right.merge(key, value, Integer::sum)
+    private Map<String, Integer> mergeMaps(Map<String, Integer> left, Map<String, Integer> right) {
+        right.forEach(
+                (key, value) -> left.merge(key, value, Integer::sum)
         );
+        return left;
     }
 
     private void printStats(Map<String, Integer> stats) {

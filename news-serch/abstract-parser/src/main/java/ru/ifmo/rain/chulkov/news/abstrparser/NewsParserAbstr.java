@@ -37,7 +37,7 @@ public abstract class NewsParserAbstr implements NewsParser {
                 }
                 in.close();
 
-                return content.toString();
+                return content.toString().toLowerCase();
 
             } catch (IOException e) {
                 System.err.println("Failed to read response");
